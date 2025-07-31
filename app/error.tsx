@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import SidebarLayout from '../components/sidebar';
 
 export default function GlobalError() {
   return (

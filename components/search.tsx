@@ -30,7 +30,6 @@ export default function Search() {
 
   const [results, setResults] = useState<SearchResult[]>([]);
 
-  // ✅ Tutup dropdown saat klik di luar komponen
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
