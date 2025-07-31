@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react"
-import { getApiBootcamp } from "../lib/api_bootcamp"
+import { getApiPost } from "../lib/api_post"
 
 // Komponen Card
-function BootcampCard({ data }) {
+function PostCard({ data }) {
   return (
     <div className="max-w-lg w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow justify-center">
       <div className="p-6 pb-4">
@@ -13,7 +13,7 @@ function BootcampCard({ data }) {
             {data.title}
           </h3>
           <span className="bg-[#2EA9F8] text-white px-3 py-1 rounded-full text-xs font-medium ml-4">
-            #Article
+            #Post
           </span>
         </div>
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -80,19 +80,19 @@ function BootcampCard({ data }) {
   );
 }
 
-export default function UserBootcampPage() {
-  const [bootcamps, setBootcamps] = useState([]);
+export default function UserPostPage() {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    getApiBootcamp().then(setBootcamps).catch(console.error);
+    getApiPost().then(setPosts).catch(console.error);
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col gap-6">
-          {bootcamps.map((bootcamp) => (
-            <BootcampCard key={bootcamp.id} data={bootcamp} />
+          {posts.map((post) => (
+            <PostCard key={post.id} data={post} />
           ))}
         </div>
       </div>
