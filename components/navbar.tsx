@@ -8,7 +8,7 @@ import PostCard from './post';
 import SearchBar from './search';
 
 export default function Navbar() {
-  const [activeTab, setActiveTab] = useState('Bootcamp');
+  const [activeTab, setActiveTab] = useState('ForYou');
 
   const navItems = [
     { name: 'ForYou', id: 'foryou' },

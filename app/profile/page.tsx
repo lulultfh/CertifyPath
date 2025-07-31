@@ -1,4 +1,4 @@
-import FeatureUnavailable from "../../components/error";
+import FeatureUnavailable from "../error";
 
 export default function ProfilePage() {
   return <FeatureUnavailable />;
