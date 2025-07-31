@@ -26,15 +26,15 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.name)}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2 ${
                   activeTab === item.name
-                    ? "text-gray-900"
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "text-gray-900 border-transparent"
+                    : "text-gray-500 border-gray-200 hover:text-gray-700"
                 }`}
               >
                 {item.name}
                 {activeTab === item.name && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900 rounded-full"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 to-yellow-400 rounded-full"></div>
                 )}
               </button>
             ))}
