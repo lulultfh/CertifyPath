@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react"
-import { getApiPost } from "../lib/api_post"
+import React, { useEffect, useState } from "react";
+import { getApiPost } from "../lib/api_post";
 
 // Komponen Card
 function PostCard({ data }) {
   return (
-    <div className="max-w-lg w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow justify-center">
+    <div className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="p-6 pb-4">
         <div className="flex items-start justify-between mb-3">
           <h3 className="text-xl font-semibold text-gray-900 leading-tight">

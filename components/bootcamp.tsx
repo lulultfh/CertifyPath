@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react"
-import { getApiBootcamp } from "../lib/api_bootcamp"
+import React, { useEffect, useState } from "react";
+import { getApiBootcamp } from "../lib/api_bootcamp";
 
 // Komponen Card
 function BootcampCard({ data }) {
   return (
-    <div className="max-w-lg w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow justify-center">
+    <div className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="p-6 pb-4">
         <div className="flex items-start justify-between mb-3">
           <h3 className="text-xl font-semibold text-gray-900 leading-tight">
@@ -89,8 +89,8 @@ export default function UserBootcampPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col gap-6">
+      <div className="w-full">
+        <div className="grid place-items-center gap-6">
           {bootcamps.map((bootcamp) => (
             <BootcampCard key={bootcamp.id} data={bootcamp} />
           ))}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import ForYouCard from './foryou'
 import BootcampCards from './bootcamp';
 import ArticleCards from './article';
 import PostCard from './post';
@@ -10,7 +11,7 @@ export default function Navbar() {
   const [activeTab, setActiveTab] = useState('Bootcamp');
 
   const navItems = [
-    { name: 'For You', id: 'foryou' },
+    { name: 'ForYou', id: 'foryou' },
     { name: 'Bootcamp', id: 'bootcamp' },
     { name: 'Article', id: 'article' },
     { name: 'Posts', id: 'posts' },
@@ -47,6 +48,11 @@ export default function Navbar() {
         </nav>
 
         {/* Tab Content */}
+        {activeTab === 'ForYou' && (
+          <div className="flex justify-center items-center min-h-screen">
+            <ForYouCard />
+          </div>
+        )}
         {activeTab === 'Bootcamp' && (
           <div className="flex justify-center items-center min-h-screen">
             <BootcampCards />
