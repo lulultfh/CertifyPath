@@ -13,7 +13,8 @@ const imageSources = [
 
 export default function AboutCards() {
   return (
-    <section className="w-full min-h-screen bg-gradient-to-b from-lime-50 to-white py-12 px-6">
+    <section className="w-full min-h-screen bg-gradient-to-b from-lime-50 to-white py-12 px-6"
+    style={{ backgroundImage: "url('/errorPage.png')" }}>
       <h1 className="text-4xl font-bold text-center text-orange-500 mb-8">
         About Us
       </h1>
