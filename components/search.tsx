@@ -119,7 +119,7 @@ export default function Search() {
   }, [query]);
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div ref={containerRef} className="relative w-full my-4 md:my-0">
       <div className="flex items-center bg-gray-100 rounded-full px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-blue-300 transition-all">
         <FiSearch className="text-gray-400 mr-3" />
         <input
