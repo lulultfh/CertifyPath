@@ -42,7 +42,7 @@ export default function AboutCards() {
         We are a learning platform built to support students, job seekers, and
         lifelong learners in reaching their career goals. Our mission is to help
         users discover personalized bootcamps, articles, and community posts
-        based on their interests and aspirations. Whether you're exploring a
+        based on their interests and aspirations. Whether you&rsquo;re exploring a
         specific topic, searching for trending skills, or just starting your
         journey, we provide the tools and community to help you succeed.
       </div>

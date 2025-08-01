@@ -14,19 +14,34 @@ const trending = [
   "Machine Learning",
 ];
 
+type SearchResult = {
+  id: number;
+  title: string;
+  type: "Bootcamp" | "Article" | "Post";
+  path: string;
+};
+
+type Bootcamp = {
+  id: number;
+  title: string;
+};
+
+type Article = {
+  id: number;
+  title: string;
+};
+
+type Post = {
+  id: number;
+  title: string;
+};
+
 export default function Search() {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  type SearchResult = {
-    id: number;
-    title: string;
-    type: "Bootcamp" | "Article" | "Post";
-    path: string;
-  };
 
   const [results, setResults] = useState<SearchResult[]>([]);
 
@@ -53,38 +68,45 @@ export default function Search() {
       }
 
       try {
-        const [bootcampData, articleData, postData] = await Promise.all([
+        const [bootcampData, articleData, postData]: [
+          Bootcamp[],
+          Article[],
+          Post[]
+        ] = await Promise.all([
           getApiBootcamp(),
           getApiArticle(),
           getApiPost(),
         ]);
 
-        const filteredBootcamps = bootcampData.filter((item: any) =>
+        const filteredBootcamps = bootcampData.filter((item) =>
           item.title?.toLowerCase().includes(query.toLowerCase())
         );
-        const filteredArticles = articleData.filter((item: any) =>
+        const filteredArticles = articleData.filter((item) =>
           item.title?.toLowerCase().includes(query.toLowerCase())
         );
-        const filteredPosts = postData.filter((item: any) =>
+        const filteredPosts = postData.filter((item) =>
           item.title?.toLowerCase().includes(query.toLowerCase())
         );
 
-        const combined = [
-          ...filteredBootcamps.map((item: any) => ({
-            ...item,
+        const combined: SearchResult[] = [
+          ...filteredBootcamps.map((item) => ({
+            id: item.id,
+            title: item.title,
             type: "Bootcamp",
             path: `/bootcamp/${item.id}`,
-          })),
-          ...filteredArticles.map((item: any) => ({
-            ...item,
+          } as const)),
+          ...filteredArticles.map((item) => ({
+            id: item.id,
+            title: item.title,
             type: "Article",
             path: `/article/${item.id}`,
-          })),
-          ...filteredPosts.map((item: any) => ({
-            ...item,
+          } as const)),
+          ...filteredPosts.map((item) => ({
+            id: item.id,
+            title: item.title,
             type: "Post",
             path: `/post/${item.id}`,
-          })),
+          } as const)),
         ];
 
         setResults(combined);
@@ -121,7 +143,6 @@ export default function Search() {
         )}
       </div>
 
-      {/* Dropdown */}
       {showDropdown && (
         <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-md z-50">
           {query === "" ? (

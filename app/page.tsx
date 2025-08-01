@@ -1,5 +1,3 @@
-import BootcampCards from "../components/bootcamp";
-import ArticleCards from "../components/article";
 import Navbar from "../components/navbar";
 import SidebarLayout from "../components/sidebar";
 

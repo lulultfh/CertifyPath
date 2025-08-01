@@ -23,7 +23,7 @@ function ForYouCard({ data }: { data: ForYouItem }) {
   return (
     <div
       onClick={() => (window.location.href = data.path)}
-      className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+      className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
     >
       <div className="p-6 pb-4">
         <div className="flex items-start justify-between mb-3">
@@ -42,13 +42,12 @@ function ForYouCard({ data }: { data: ForYouItem }) {
       {data.image && (
         <div className="relative px-6">
           <Image
-            src={data.image}
+            src={data.image.startsWith("http") ? data.image : data.image || "/placeholder.png"}
             alt={data.title}
             width={800}
             height={192}
             className="w-full h-48 object-cover rounded-lg"
           />
-
           {data.duration && (
             <div className="absolute bottom-3 right-3 bg-white bg-opacity-70 text-black px-2 py-1 rounded text-xs font-medium">
               {data.duration}
@@ -128,7 +127,12 @@ export default function ForYouPage() {
         ]);
 
         const formatted: ForYouItem[] = [
-          ...articles.map((a: any) => ({
+          ...articles.map((a: {
+            id: number;
+            title: string;
+            image?: string;
+            excerpt?: string;
+          }) => ({
             id: a.id,
             title: a.title,
             type: "Article",
@@ -136,7 +140,16 @@ export default function ForYouPage() {
             description: a.excerpt,
             path: `/article/${a.id}`,
           })),
-          ...bootcamps.map((b: any) => ({
+          ...bootcamps.map((b: {
+            id: number;
+            title: string;
+            image?: string;
+            description?: string;
+            duration?: string;
+            reviews?: string;
+            level?: string;
+            rating?: number;
+          }) => ({
             id: b.id,
             title: b.title,
             type: "Bootcamp",
@@ -148,7 +161,12 @@ export default function ForYouPage() {
             rating: b.rating,
             path: `/bootcamp/${b.id}`,
           })),
-          ...posts.map((p: any) => ({
+          ...posts.map((p: {
+            id: number;
+            title: string;
+            image?: string;
+            description?: string;
+          }) => ({
             id: p.id,
             title: p.title,
             type: "Post",
@@ -158,7 +176,7 @@ export default function ForYouPage() {
           })),
         ];
 
-        setItems(formatted.sort(() => Math.random() - 0.5)); // Acak tampilannya
+        setItems(formatted.sort(() => Math.random() - 0.5));
       } catch (error) {
         console.error("Gagal mengambil data:", error);
       }
