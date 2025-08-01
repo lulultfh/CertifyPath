@@ -1,38 +1,112 @@
-# CertifyPath
+# 🚀 CertifyPath
+CertifyPath adalah sebuah platform yang membantu pengguna menemukan dan memilih pelatihan atau sertifikasi yang sesuai dengan minat dan tujuan karier mereka.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✨ Fitur Utama
+Rekomendasi pelatihan dan sertifikasi berbasis minat
 
-## Getting Started
+Katalog bootcamp dan artikel berdasarkan kategori
 
-First, run the development server:
+Detail pelatihan meliputi durasi, format, tingkat kesulitan, dan rating
 
-```bash
+Antarmuka ramah pengguna dengan pencarian intuitif
+
+# 🛠️ Getting Started
+1. Clone repository
+   
+git clone https://github.com/username/certifypath.git
+
+cd certifypath
+3. Install Dependencies
+
+npm install
+
+atau
+
+yarn install
+
+4. Run Program
+
 npm run dev
-# or
+
+atau
+
 yarn dev
-# or
+
+atau
+
 pnpm dev
-# or
+
+atau
+
 bun dev
-```
+# 📁 Struktur Folder
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+certifypath/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+├── app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+│   ├── page.tsx
 
-## Learn More
+│   ├── bootcamp/
 
-To learn more about Next.js, take a look at the following resources:
+│   │   └── page.tsx
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+│   ├── article
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+│   ├── chat
 
-## Deploy on Vercel
+│   ├── connection
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+│   ├── post
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+│   ├── profile
+
+│   ├── setting
+
+├── components/
+
+│   ├── bootcamp.tsx
+    
+│   ├── explore.tsx
+
+│   ├── article.tsx
+
+│   ├── foryou.tsx
+
+│   ├── navbar.tsx
+
+│   ├── post.tsx
+
+
+│   ├── search.tsx
+
+│   └── sidebar.tsx
+
+├── public/
+
+├── lib/
+
+│   ├── api_article.ts
+
+│   ├── api_bootcamp.ts
+
+│   ├── api_post.ts
+
+│   └── utils.ts
+
+├── styles/
+
+│   └── globals.css
+
+├── package.json
+
+
+└── README.md
+
+# 🧠 Refleksi Singkat Kerja Tim
+Kolaborasi berjalan efektif dengan pembagian tugas yang jelas.
+
+Tantangan utama: Berkoordinasi untuk menghasilkan fitur yang sesuai dengan tujuan awal
+
+Solusi: Saling bekerjasama ketika membuat berbagai fitur agar tidak ada konflik
+
