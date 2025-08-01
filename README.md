@@ -1,7 +1,7 @@
-🚀 CertifyPath
+# 🚀 CertifyPath
 CertifyPath adalah sebuah platform yang membantu pengguna menemukan dan memilih pelatihan atau sertifikasi yang sesuai dengan minat dan tujuan karier mereka.
 
-✨ Fitur Utama
+# ✨ Fitur Utama
 Rekomendasi pelatihan dan sertifikasi berbasis minat
 
 Katalog bootcamp dan artikel berdasarkan kategori
@@ -10,7 +10,7 @@ Detail pelatihan meliputi durasi, format, tingkat kesulitan, dan rating
 
 Antarmuka ramah pengguna dengan pencarian intuitif
 
-🛠️ Getting Started
+# 🛠️ Getting Started
 1. Clone repository
 bash
 Salin
@@ -22,23 +22,21 @@ bash
 Salin
 Edit
 npm install
-# atau
+atau
 yarn install
 3. Run Program
 bash
 Salin
 Edit
 npm run dev
-# atau
+atau
 yarn dev
-# atau
+atau
 pnpm dev
-# atau
+atau
 bun dev
-📁 Struktur Folder
-pgsql
-Salin
-Edit
+# 📁 Struktur Folder
+
 certifypath/
 ├── app/
 │   ├── page.tsx
@@ -71,7 +69,7 @@ certifypath/
 ├── package.json
 └── README.md
 
-🧠 Refleksi Singkat Kerja Tim
+# 🧠 Refleksi Singkat Kerja Tim
 Kolaborasi berjalan efektif dengan pembagian tugas yang jelas.
 
 Tantangan utama: Berkoordinasi untuk menghasilkan fitur yang sesuai dengan tujuan awal
