@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { getApiArticle } from "../lib/api_article";
 import { getApiBootcamp } from "../lib/api_bootcamp";
 import { getApiPost } from "../lib/api_post";
@@ -41,11 +41,14 @@ function ForYouCard({ data }: { data: ForYouItem }) {
 
       {data.image && (
         <div className="relative px-6">
-          <img
-            className="w-full h-48 object-cover rounded-lg"
+          <Image
             src={data.image}
             alt={data.title}
+            width={800}
+            height={192}
+            className="w-full h-48 object-cover rounded-lg"
           />
+
           {data.duration && (
             <div className="absolute bottom-3 right-3 bg-white bg-opacity-70 text-black px-2 py-1 rounded text-xs font-medium">
               {data.duration}
@@ -75,26 +78,34 @@ function ForYouCard({ data }: { data: ForYouItem }) {
 
         <div className="flex justify-between items-center">
           <div className="flex gap-2">
-            <img
+            <Image
               src="/like.svg"
               alt="Like"
+              width={64}
+              height={24}
               className="w-16 h-6 cursor-pointer"
             />
-            <img
+            <Image
               src="/comment.svg"
               alt="Comment"
+              width={88}
+              height={24}
               className="w-22 h-6 cursor-pointer"
             />
           </div>
           <div className="flex gap-2">
-            <img
+            <Image
               src="/save.svg"
               alt="Save"
+              width={64}
+              height={24}
               className="w-16 h-6 cursor-pointer"
             />
-            <img
+            <Image
               src="/share.svg"
               alt="Share"
+              width={64}
+              height={24}
               className="w-16 h-6 cursor-pointer"
             />
           </div>

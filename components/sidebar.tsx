@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SidebarLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -37,7 +38,12 @@ export default function SidebarLayout() {
             <div className="flex flex-col items-center px-4">
               <Link href="/" className="px-8 text-left focus:outline-none">
                 <div className="sidebar flex items-center space-x-2 mt-4">
-                  <img src="/logo.svg" alt="My Icon" className="w-48 h-12" />
+                  <Image
+                    src="/logo.svg"
+                    alt="My Icon"
+                    width={192}
+                    height={48}
+                  />
                 </div>
               </Link>
             </div>
@@ -50,11 +56,13 @@ export default function SidebarLayout() {
                     <li key={item.label}>
                       <Link href={item.path}>
                         <div className="inline-flex items-center w-full px-4 py-2 mt-1 text-base text-gray-900 transition duration-300 transform rounded-lg bg-gray-50 hover:bg-[#EDEDED] hover:text-black">
-                          <img
+                          <Image
                             src={item.icon}
                             alt={`${item.label} Icon`}
-                            className="w-5 h-5"
+                            width={20}
+                            height={20}
                           />
+
                           <span className="ml-4 font-semibold">
                             {item.label}
                           </span>
@@ -72,9 +80,11 @@ export default function SidebarLayout() {
                     <li key={item.label}>
                       <Link href={item.path}>
                         <div className="inline-flex items-center w-full px-4 py-2 mt-1 text-base text-gray-900 transition duration-300 transform rounded-lg bg-gray-50 hover:bg-[#EDEDED] hover:text-black">
-                          <img
+                          <Image
                             src={item.icon}
-                            alt={`${item.label} Icon`}
+                            alt={item.label}
+                            width={20}
+                            height={20}
                             className="w-5 h-5"
                           />
                           <span className="ml-4 font-semibold">

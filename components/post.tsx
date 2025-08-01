@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import React, { useEffect, useState } from "react";
 import { getApiPost } from "../lib/api_post";
@@ -15,7 +16,7 @@ interface PostData {
 }
 
 // Komponen Card
-function PostCard({ data } : { data: PostData }) {
+function PostCard({ data }: { data: PostData }) {
   return (
     <div className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="p-6 pb-4">
@@ -33,11 +34,13 @@ function PostCard({ data } : { data: PostData }) {
       </div>
 
       <div className="relative px-6">
-        <img
-          className="w-full h-48 object-cover rounded-lg"
+        <Image
           src={data.image}
           alt={data.title}
+          fill
+          className="object-cover rounded-lg"
         />
+
         <div className="absolute bottom-3 right-3 bg-white bg-opacity-70 text-black px-2 py-1 rounded text-xs font-medium">
           {data.duration}
         </div>
@@ -62,27 +65,35 @@ function PostCard({ data } : { data: PostData }) {
 
         <div className="flex justify-between items-center">
           <div className="flex gap-2">
-            <img
+            <Image
               src="/like.svg"
               alt="Like"
-              className="w-16 h-6 cursor-pointer"
+              width={64}
+              height={24}
+              className="cursor-pointer"
             />
-            <img
+            <Image
               src="/comment.svg"
               alt="Comment"
-              className="w-22 h-6 cursor-pointer"
+              width={88}
+              height={24}
+              className="cursor-pointer"
             />
           </div>
           <div className="flex gap-2">
-            <img
+            <Image
               src="/save.svg"
               alt="Save"
-              className="w-16 h-6 cursor-pointer"
+              width={64}
+              height={24}
+              className="cursor-pointer"
             />
-            <img
+            <Image
               src="/share.svg"
               alt="Share"
-              className="w-16 h-6 cursor-pointer"
+              width={64}
+              height={24}
+              className="cursor-pointer"
             />
           </div>
         </div>

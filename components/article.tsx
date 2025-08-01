@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { getApiArticle } from "../lib/api_article";
 
 interface ArticleData {
@@ -33,10 +34,13 @@ function ArticleCard({ data }: { data: ArticleData }) {
       </div>
 
       <div className="relative px-6">
-        <img
-          className="w-full h-48 object-cover rounded-lg"
+        <Image
           src={data.image}
-          alt={data.title}
+          alt={data.title || "Bootcamp Image"}
+          width={800}
+          height={400}
+          className="w-full h-48 object-cover rounded-lg"
+          priority={false}
         />
         <div className="absolute bottom-3 right-3 bg-white bg-opacity-70 text-black px-2 py-1 rounded text-xs font-medium">
           {data.duration}
@@ -62,26 +66,34 @@ function ArticleCard({ data }: { data: ArticleData }) {
 
         <div className="flex justify-between items-center">
           <div className="flex gap-2">
-            <img
+            <Image
               src="/like.svg"
               alt="Like"
+              width={64}
+              height={24}
               className="w-16 h-6 cursor-pointer"
             />
-            <img
+            <Image
               src="/comment.svg"
               alt="Comment"
+              width={88}
+              height={24}
               className="w-22 h-6 cursor-pointer"
             />
           </div>
           <div className="flex gap-2">
-            <img
+            <Image
               src="/save.svg"
               alt="Save"
+              width={64}
+              height={24}
               className="w-16 h-6 cursor-pointer"
             />
-            <img
+            <Image
               src="/share.svg"
               alt="Share"
+              width={64}
+              height={24}
               className="w-16 h-6 cursor-pointer"
             />
           </div>
