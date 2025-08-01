@@ -7,7 +7,7 @@ import { getApiBootcamp } from "../lib/api_bootcamp";
 import { getApiPost } from "../lib/api_post";
 
 type ForYouItem = {
-  id: number;
+  id: string;
   title: string;
   type: "Article" | "Bootcamp" | "Post";
   image?: string;
@@ -17,6 +17,31 @@ type ForYouItem = {
   level?: string;
   rating?: number;
   path: string;
+};
+
+type Article = {
+  id: number | string;
+  title: string;
+  image?: string;
+  excerpt?: string;
+};
+
+type Bootcamp = {
+  id: string;
+  title: string;
+  preview: string;
+  skill: string;
+  duration: string;
+  level: string;
+  rating: number;
+  review_count: number;
+};
+
+type Post = {
+  id: number | string;
+  title: string;
+  image?: string;
+  description?: string;
 };
 
 function ForYouCard({ data }: { data: ForYouItem }) {
@@ -42,7 +67,9 @@ function ForYouCard({ data }: { data: ForYouItem }) {
       {data.image && (
         <div className="relative px-6">
           <Image
-            src={data.image.startsWith("http") ? data.image : data.image || "/placeholder.png"}
+            src={
+              data.image.startsWith("http") ? data.image : data.image || "/placeholder.png"
+            }
             alt={data.title}
             width={800}
             height={192}
@@ -127,49 +154,30 @@ export default function ForYouPage() {
         ]);
 
         const formatted: ForYouItem[] = [
-          ...articles.map((a: {
-            id: number;
-            title: string;
-            image?: string;
-            excerpt?: string;
-          }) => ({
-            id: a.id,
+          ...articles.map((a: Article) => ({
+            id: String(a.id),
             title: a.title,
-            type: "Article",
+            type: "Article" as const,
             image: a.image,
             description: a.excerpt,
             path: `/article/${a.id}`,
           })),
-          ...bootcamps.map((b: {
-            id: number;
-            title: string;
-            image?: string;
-            description?: string;
-            duration?: string;
-            reviews?: string;
-            level?: string;
-            rating?: number;
-          }) => ({
+          ...bootcamps.map((b: Bootcamp) => ({
             id: b.id,
             title: b.title,
-            type: "Bootcamp",
-            image: b.image,
-            description: b.description,
+            type: "Bootcamp" as const,
+            image: b.preview,
+            description: b.skill,
             duration: b.duration,
-            reviews: b.reviews,
+            reviews: `${b.review_count} Reviews`,
             level: b.level,
             rating: b.rating,
             path: `/bootcamp/${b.id}`,
           })),
-          ...posts.map((p: {
-            id: number;
-            title: string;
-            image?: string;
-            description?: string;
-          }) => ({
-            id: p.id,
+          ...posts.map((p: Post) => ({
+            id: String(p.id),
             title: p.title,
-            type: "Post",
+            type: "Post" as const,
             image: p.image,
             description: p.description,
             path: `/post/${p.id}`,

@@ -15,24 +15,24 @@ const trending = [
 ];
 
 type SearchResult = {
-  id: number;
+  id: string;
   title: string;
   type: "Bootcamp" | "Article" | "Post";
   path: string;
 };
 
 type Bootcamp = {
-  id: number;
+  id: string;
   title: string;
 };
 
 type Article = {
-  id: number;
+  id: string;
   title: string;
 };
 
 type Post = {
-  id: number;
+  id: string;
   title: string;
 };
 
@@ -92,21 +92,21 @@ export default function Search() {
           ...filteredBootcamps.map((item) => ({
             id: item.id,
             title: item.title,
-            type: "Bootcamp",
+            type: "Bootcamp" as const,
             path: `/bootcamp/${item.id}`,
-          } as const)),
+          })),
           ...filteredArticles.map((item) => ({
             id: item.id,
             title: item.title,
-            type: "Article",
+            type: "Article" as const,
             path: `/article/${item.id}`,
-          } as const)),
+          })),
           ...filteredPosts.map((item) => ({
             id: item.id,
             title: item.title,
-            type: "Post",
+            type: "Post" as const,
             path: `/post/${item.id}`,
-          } as const)),
+          })),
         ];
 
         setResults(combined);
