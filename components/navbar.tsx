@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import ForYouCard from './foryou'
-import BootcampCards from './bootcamp';
-import ArticleCards from './article';
+import BootcampCard from './bootcamp';
+import ArticleCard from './article';
 import PostCard from './post';
 import SearchBar from './search';
 
@@ -55,12 +55,12 @@ export default function Navbar() {
         )}
         {activeTab === 'Bootcamp' && (
           <div className="flex justify-center items-center min-h-screen">
-            <BootcampCards />
+            <BootcampCard />
           </div>
         )}
         {activeTab === 'Article' && (
           <div className="flex justify-center items-center min-h-screen">
-            <ArticleCards />
+            <ArticleCard />
           </div>
         )}
         {activeTab === 'Posts' && (
