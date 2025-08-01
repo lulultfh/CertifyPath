@@ -3,8 +3,19 @@
 import React, { useEffect, useState } from "react";
 import { getApiBootcamp } from "../lib/api_bootcamp";
 
+interface BootcampData {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  duration: string;
+  reviews: string;
+  level: string;
+  rating: number;
+}
+
 // Komponen Card
-function BootcampCard({ data }) {
+function BootcampCard({ data }: { data: BootcampData }) {
   return (
     <div className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="p-6 pb-4">
@@ -81,7 +92,7 @@ function BootcampCard({ data }) {
 }
 
 export default function UserBootcampPage() {
-  const [bootcamps, setBootcamps] = useState([]);
+  const [bootcamps, setBootcamps] = useState<BootcampData[]>([]);
 
   useEffect(() => {
     getApiBootcamp().then(setBootcamps).catch(console.error);

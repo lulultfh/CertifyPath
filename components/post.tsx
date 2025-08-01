@@ -3,8 +3,19 @@
 import React, { useEffect, useState } from "react";
 import { getApiPost } from "../lib/api_post";
 
+interface PostData {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  duration: string;
+  reviews: string;
+  level: string;
+  rating: number;
+}
+
 // Komponen Card
-function PostCard({ data }) {
+function PostCard({ data } : { data: PostData }) {
   return (
     <div className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="p-6 pb-4">
@@ -81,7 +92,7 @@ function PostCard({ data }) {
 }
 
 export default function UserPostPage() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PostData[]>([]);
 
   useEffect(() => {
     getApiPost().then(setPosts).catch(console.error);

@@ -3,8 +3,19 @@
 import React, { useEffect, useState } from "react";
 import { getApiArticle } from "../lib/api_article";
 
+interface ArticleData {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  duration: string;
+  reviews: string;
+  level: string;
+  rating: number;
+}
+
 // Komponen Card
-function ArticleCard({ data }) {
+function ArticleCard({ data }: { data: ArticleData }) {
   return (
     <div className="w-full bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="p-6 pb-4">
@@ -81,7 +92,7 @@ function ArticleCard({ data }) {
 }
 
 export default function UserArticlesPage() {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<ArticleData[]>([]);
 
   useEffect(() => {
     getApiArticle().then(setArticles).catch(console.error);
