@@ -36,7 +36,7 @@ npm install
 # atau
 yarn install
 
-### 1. Run Program
+### 3. Run Program
 npm run dev
 # atau
 yarn dev
